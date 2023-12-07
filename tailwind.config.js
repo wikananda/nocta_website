@@ -19,6 +19,23 @@ export default {
                 'spartan': ['League Spartan', 'sans-serif'],
                 'alternates': ['Montserrat Alternates', 'sans-serif'],
             },
+            height: theme => ({
+                "screen/2": "50vh",
+                "screen/3": "calc(100vh / 3)",
+                "screen/4": "calc(100vh / 4)",
+                "screen/5": "calc(100vh / 5)",
+                "screen-4/6": "calc(100vh * 4 / 6)",
+                "screen-5/6": "calc(100vh * 5 / 6)",
+              }),
+
+            width: theme => ({
+                "screen/2": "50vw",
+                "screen/3": "calc(100vw / 3)",
+                "screen/4": "calc(100vw / 4)",
+                "screen/5": "calc(100vw / 5)",
+                "screen-4/6": "calc(100vw * 4 / 6)",
+                "screen-5/6": "calc(100vw * 5 / 6)",
+              }),
         },
         colors: {
             transparent: 'transparent',
@@ -28,6 +45,7 @@ export default {
             'whiteblue': '#BFD7EA',
             'lightred': '#FF5A5F',
             'solidred': '#C81D25',
+            'white': '#FFFFFF',
         },
     },
 
