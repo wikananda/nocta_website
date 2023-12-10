@@ -21,7 +21,7 @@
 
     <body class='bg-whiteblue'>
         <header class='flex items-center justify-between px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b z-10'>
-            <a href='/welcome'>
+            <a href='/'>
                 <img
                     src='{{ asset("img/nocta-logo darkblue.png") }}'
                     alt='Nocta Studio Logo'
