@@ -59,7 +59,7 @@
 
         <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center'>
             <div class='w-full flex items-center justify-between lg:justify-center space-x-0 lg:space-x-28'>
-                <a href='/welcome'>
+                <a href='/'>
                     <img
                         src='{{ asset("img/nocta-logo whiteblue.png") }}'
                         alt='Nocta Studio Logo'
