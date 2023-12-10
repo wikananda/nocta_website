@@ -20,12 +20,13 @@
     </head>
 
     <body class='bg-whiteblue'>
-        <header class='flex items-center justify-between px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b'>
+        <header class='flex items-center justify-between px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b'>
             <a href='/'>
                 <img
-                    src='{{ asset("img/nocta-logo.png") }}'
+                    src='{{ asset("img/nocta-logo darkblue.png") }}'
                     alt='Nocta Studio Logo'
                     width='100'
+                    class='xl:scale-100 scale-75'
                 />
             </a>
 
@@ -38,9 +39,9 @@
             </div>
         </header>
 
-        <div class='h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col justify-center' style="background-image: url('{{ asset('img/pattern.png') }}');">
+        <div class='h-screen py-16 justify-normal md:py-16 lg:py-0 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col lg:justify-center' style="background-image: url('{{ asset('img/pattern.png') }}');">
             <h2 class='text-4xl font-medium text-darkblue'>our games.</h2>
-            <div class='mt-10 mb-24 flex flex-row space-x-16 justify-evenly'>
+            <div class='mt-10 mb-24 flex md:flex-row md:space-x-16 flex-col space-y-16 md:space-y-0 md:justify-evenly'>
                 <figure class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 hover:scale-105">
                     <a href="/before-silence">
                         <img class="rounded-none shadow dark:rounded-none dark:bg-gray-800 dark:border-gray-700" src="{{ asset('img/Before Silence Banner.png') }}" alt="before-silence">
@@ -55,6 +56,25 @@
                 </figure>
             </div>
         </div>
+
+        <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center'>
+            <div class='w-full flex items-center justify-between lg:justify-center space-x-0 lg:space-x-28'>
+                <a href='/welcome'>
+                    <img
+                        src='{{ asset("img/nocta-logo whiteblue.png") }}'
+                        alt='Nocta Studio Logo'
+                        width='100'
+                        class='lg:scale-150 scale-100'
+                    />
+                </a>
+    
+                <div class='flex flex-col items-center space-y-2 lg:space-y-5'>
+                    <a class='font-semibold text-lg md:text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/games'>games</a>
+                    <a class='font-semibold text-lg md:text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/feedback'>feedback</a>
+                </div>
+            </div>
+            <p class='block text-xs lg:text-sm text-whiteblue mt-10 font-light md:w-full lg:w-auto'>Copyright ©2023 Nocta Studio</p>
+        </footer>
 
     </body>
 </html>
