@@ -77,6 +77,26 @@ use Illuminate\Support\Facades\Auth;
                     }
                 </script>
             </div>
+            {{-- <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
+                <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/games'>games</a>
+                <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/feedback'>feedback</a>
+            
+                @guest
+                    <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                        login
+                    </button>
+                @else
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xl font-semibold text-black">{{ Auth::user()->name }}</span>
+                        <!-- Add logout button or link here -->
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="text-xl font-semibold text-whiteblue">logout</button>
+                        </form>
+                    </div>
+                @endguest
+            </div> --}}
+            
 
         </header>
 

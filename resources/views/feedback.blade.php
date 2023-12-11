@@ -73,7 +73,7 @@
             </div>
         </header>
 
-        <div class='mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
+        <div class='min-h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='w-full md:w-3/5 lg:w-1/2'>
                 <h2 class='text-3xl font-medium text-darkblue'>provide <span class='text-lightred'>feedback</span></h2>
                 <p class='text-2xl font-light text-darkblue mt-8'>we would love to hear your thoughts about our game!</p>
