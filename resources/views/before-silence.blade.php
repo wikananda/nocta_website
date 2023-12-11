@@ -31,8 +31,8 @@
             </a>
 
             <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
-                <a class='font-semibold text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/games'>games</a>
-                <a class='font-semibold text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/feedback'>feedback</a>
+                <a class='font-semibold text-xl text-whiteblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-whiteblue transition-all' href='/games'>games</a>
+                <a class='font-semibold text-xl text-whiteblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-whiteblue transition-all' href='/feedback'>feedback</a>
                 @if(Auth::check())
                     <div class='relative'>
                         @if(Auth::user()->profile_picture)
