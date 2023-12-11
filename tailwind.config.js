@@ -44,7 +44,7 @@ export default {
             'greenblue': '#087E8B',
             'whiteblue': '#BFD7EA',
             'lightred': '#FF5A5F',
-            'solidred': '#C81D25',
+            'darkred': '#C81D25',
             'white': '#FFFFFF',
         },
     },

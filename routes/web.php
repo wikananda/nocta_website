@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\NoctaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +14,24 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [NoctaController::class, 'home']);
-Route::get('/games', [NoctaController::class, 'games']);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+/* ---------------------------- Admin Route --------------------------- */
+Route::prefix('admin')->group(function (){
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_form');
+    Route::post('/login/owner', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+    Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
+});
+
+
+
+
+
+/* ---------------------------- User Route ---------------------------- */
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
