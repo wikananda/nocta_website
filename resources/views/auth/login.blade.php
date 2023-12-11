@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     </head>
 
-    <body class='bg-whiteblue h-screen bg-cover relative' style="background-image: url('{{ asset('img/pattern.png') }}');"'>
+    <body class='bg-whiteblue bg-cover relative flex flex-col min-h-screen' style="background-image: url('{{ asset('img/pattern.png') }}');"'>
         <header class='flex items-center justify-between px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b bg-whiteblue z-10'>
             <a href='/'>
                 <img
@@ -80,7 +80,7 @@
                         <button type='submit' form='login-form' value='Submit' class='max-w-xs w-40 mt-2 px-7 py-4 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
                             {{ __('log in') }}
                         </button>
-                        <a class="underline text-sm text-darkblue dark:text-darkblue hover:text-darkred dark:hover:text-darkred rounded-md focus:outline-none transition-all" href="{{ route('register') }}">
+                        <a class="underline text-sm text-darkblue dark:text-darkblue hover:text-darkred dark:hover:text-darkred focus:outline-none transition-all" href="{{ route('register') }}">
                             {{ __('Don\'t have account?') }}
                         </a>
 
@@ -103,7 +103,7 @@
             />
         </div>
 
-        <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center'>
+        <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center mt-auto'>
             <div class='w-full flex items-center justify-between lg:justify-center space-x-0 lg:space-x-28'>
                 <a href='/'>
                     <img
