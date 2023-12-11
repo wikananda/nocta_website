@@ -21,6 +21,9 @@ Route::prefix('admin')->group(function (){
     Route::post('/login/owner', [AdminController::class, 'Login'])->name('admin.login');
     Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
     Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
+    Route::get('/before-silence', function (){
+        return view('admin.admin-before-silence');
+    })->name('admin.before-silence')->middleware('admin');
 });
 
 
