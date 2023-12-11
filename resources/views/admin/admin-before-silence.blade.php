@@ -38,35 +38,10 @@
                 </button>
             </div>
         </header>
-
-        <div class='h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
-            <h2 class='text-3xl font-medium text-darkblue'>welcome, <span class='text-lightred'>{{ Auth::guard('admin')->user()->username }}</span></h2>
-            <a href="{{ route('admin.before-silence') }}" class='w-full h-1/4 mt-5 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
+        <div class='min-h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
+            <div class='w-full h-40 bg-darkblue px-5 py-5 flex items-end'>
                 <h2 class='text-lightred text-3xl font-medium'>Before Silence</h2>
-            </a>
-            <a href='' class='w-full h-1/4 mt-10 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
-                <h2 class='text-lightred text-3xl font-medium'>Gravity Jump</h2>
-            </a>
-        </div>
-        </div>
-
-        <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center mt-auto'>
-            <div class='w-full flex items-center justify-between lg:justify-center space-x-0 lg:space-x-28'>
-                <a href='/'>
-                    <img
-                        src='{{ asset("img/nocta-logo whiteblue.png") }}'
-                        alt='Nocta Studio Logo'
-                        width='100'
-                        class='lg:scale-150 scale-100'
-                    />
-                </a>
-    
-                <div class='flex flex-col items-center space-y-2 lg:space-y-5'>
-                    <a class='font-semibold text-lg md:text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/games'>games</a>
-                    <a class='font-semibold text-lg md:text-xl text-whiteblue border-transparent border-b-2 hover:border-whiteblue transition-all' href='/feedback'>feedback</a>
-                </div>
             </div>
-            <p class='block text-xs lg:text-sm text-whiteblue mt-10 font-light md:w-full lg:w-auto'>Copyright ©2023 Nocta Studio</p>
-        </footer>
+        </div>
     </body>
 </html>

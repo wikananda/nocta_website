@@ -23,6 +23,10 @@ class AdminController extends Controller
         // dd($request->all());
 
         $check = $request->all();
+        if(Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        }
+
         if(Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])){
             return redirect()->route('admin.dashboard')->with('success', 'Admin Login Successfully');
         }else{
