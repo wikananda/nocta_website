@@ -73,6 +73,20 @@
             </div>
         </header>
 
+        @if(Session::has('success'))
+        <div id='alert' class="bg-greenblue border border-darkblue text-white px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline"> {{ Session::get('success') }} </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-white" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+        @endif
+        <script>
+            function closeAlert() {
+                document.getElementById('alert').style.display = 'none';
+            }
+        </script>
+
         <div class='min-h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='w-full md:w-3/5 lg:w-1/2'>
                 <h2 class='text-3xl font-medium text-darkblue'>provide <span class='text-lightred'>feedback</span></h2>
@@ -112,15 +126,6 @@
                     <p class='text-2xl font-normal text-darkblue mt-8'>please <a href='/login' class='font-semibold text-lightred hover:underline focus:no-underline focus:outline-none transition-all'>login</a> to provide feedback</p>
                 @endif
             </div>
-
-            @if(Session::has('success'))
-            <div id='alert' class="bg-greenblue border border-darkblue text-white px-4 py-3 rounded relative" role="alert">
-                <span class="block sm:inline"> {{ session::get('success') }} </span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                    <svg class="fill-current h-6 w-6 text-white" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                </span>
-            </div>
-            @endif
 
         </div>
 

@@ -20,6 +20,6 @@ class FeedbackController extends Controller
         $feedback->user_id = auth()->id();
         $feedback->save();
 
-        return redirect()->route('feedback.store')->with('success', 'Feedback Submitted Successfully');
+        return back()->with('success', 'Feedback submitted successfully');
     }
 }
