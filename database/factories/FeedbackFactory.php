@@ -17,8 +17,7 @@ class FeedbackFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => $this->faker->name(),
-            'age' => $this->faker->numberBetween(18, 60),
+            'user_id' => random_int(55, 105),
             'game' => $this->faker->randomElement(['Before Silence', 'Gravity Jump']),
             'type' => $this->faker->randomElement(['Bug Reports', 'Suggestions', 'Experience Feedback']),
             'title' => $this->faker->sentence,

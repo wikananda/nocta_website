@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Admin Login | Nocta Studio</title>
+        <title>Admin Dashboard</title>
         @vite('resources/css/app.css')
 
         <!-- Fonts -->
@@ -33,6 +33,9 @@
             <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/games'>games</a>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/feedback'>feedback</a>
+                <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                    dashboard
+                </button>
                 <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
                     logout
                 </button>
@@ -41,10 +44,10 @@
 
         <div class='h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <h2 class='text-3xl font-medium text-darkblue'>welcome, <span class='text-lightred'>{{ Auth::guard('admin')->user()->username }}</span></h2>
-            <a href="{{ route('admin.before-silence') }}" class='w-full h-1/4 mt-5 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
+            <a href="{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}" class='w-full h-1/4 mt-5 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
                 <h2 class='text-lightred text-3xl font-medium'>Before Silence</h2>
             </a>
-            <a href='' class='w-full h-1/4 mt-10 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
+            <a href="{{ route('admin.game-feedback', ['game' => 'Gravity Jump']) }}" class='w-full h-1/4 mt-10 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
                 <h2 class='text-lightred text-3xl font-medium'>Gravity Jump</h2>
             </a>
         </div>
