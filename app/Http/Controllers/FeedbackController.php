@@ -22,4 +22,10 @@ class FeedbackController extends Controller
 
         return back()->with('success', 'Feedback submitted successfully');
     }
+
+    public function show($game, $id)
+    {
+        $feedback = Feedback::findOrFail($id);
+        return view('admin.admin-feedback-view', ['feedback' => $feedback, 'game' => $game]);
+    }
 }
