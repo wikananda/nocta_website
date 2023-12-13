@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Feedback;
 
 class AdminController extends Controller
 {
@@ -38,4 +39,10 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return redirect()->route('login_form')->with('success', 'Admin Logout Successfully');
     }
+
+    public function showGameFeedbacks($game){
+        $feedbacks = Feedback::where('game', $game)->get();
+        return view('admin.admin-game-feedback', ['feedbacks' => $feedbacks, 'game' => $game]);
+    }
+
 }
