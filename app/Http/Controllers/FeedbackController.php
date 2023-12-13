@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Feedback;
+use App\Models\User;
 
 class FeedbackController extends Controller
 {
@@ -26,6 +27,7 @@ class FeedbackController extends Controller
     public function show($game, $id)
     {
         $feedback = Feedback::findOrFail($id);
-        return view('admin.admin-feedback-view', ['feedback' => $feedback, 'game' => $game]);
+        $user = User::findOrFail($feedback->user_id);
+        return view('admin.admin-feedback-view', ['feedback' => $feedback, 'game' => $game, 'user' => $user]);
     }
 }

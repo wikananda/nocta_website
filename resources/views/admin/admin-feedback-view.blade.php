@@ -36,7 +36,7 @@
                 <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
                     dashboard
                 </button>
-                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-none border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
+                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
                     logout
                 </button>
             </div>
@@ -53,37 +53,37 @@
                 <div class='flex flex-col mt-6 w-9/12 space-y-14'>
                     <div>
                         <h2 class='text-2xl font-semibold text-darkblue'>game</h2>
-                        <p class='text-2xl font-light text-darkblue mt-5'>test</p>
+                        <p class='text-2xl font-light text-darkblue mt-5'>{{ $feedback->game }}</p>
                     </div>
                     <div>
                         <h2 class='text-2xl font-semibold text-darkblue'>feedback type</h2>
-                        <p class='text-2xl font-light text-darkblue mt-5'>test</p>
+                        <p class='text-2xl font-light text-darkblue mt-5'>{{ $feedback->type }}</p>
                     </div>
                 </div>
                 <div class='flex flex-col mt-6 w-9/12 space-y-14'>
                     <div>
                         <h2 class='text-2xl font-semibold text-darkblue'>username</h2>
-                        <p class='text-2xl font-light text-darkblue mt-5'>test</p>
+                        <p class='text-2xl font-light text-darkblue mt-5'>{{ $user->username }}</p>
                     </div>
                     <div>
                         <h2 class='text-2xl font-semibold text-darkblue'>email</h2>
-                        <p class='text-2xl font-light text-darkblue mt-5'>test</p>
+                        <p class='text-2xl font-light text-darkblue mt-5'>{{ $user->email }}</p>
                     </div>
                 </div>
                 <div class='flex flex-col mt-6 w-9/12 space-y-14'>
                     <div>
                         <h2 class='text-2xl font-semibold text-darkblue'>age</h2>
-                        <p class='text-2xl font-light text-darkblue mt-5'>21</p>
+                        <p class='text-2xl font-light text-darkblue mt-5'>{{ $user->age }}</p>
                     </div>
                 </div>
             </div>
             <div class='mt-14'>
                 <h2 class='text-2xl font-semibold text-darkblue'>title</h2>
-                <p class='text-2xl font-normal text-darkblue mt-5'>test</p>
+                <p class='text-2xl font-normal text-darkblue mt-5'>{{ $feedback->title }}</p>
             </div>
             <div class='mt-14'>
                 <h2 class='text-2xl font-semibold text-darkblue'>feedbacks</h2>
-                <p class='text-2xl font-light text-darkblue mt-5'>test</p>
+                <p class='text-2xl font-light text-darkblue mt-5'>{{ $feedback->feedback }}</p>
             </div>
 
             <div class='max-w-5xl'>
