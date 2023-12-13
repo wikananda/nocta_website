@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,8 @@ Route::prefix('admin')->group(function (){
 });
 
 
-
+/* ---------------------------- Feedback Route --------------------------- */
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 /* ---------------------------- User Route ---------------------------- */
