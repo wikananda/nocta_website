@@ -17,6 +17,11 @@ class Feedback extends Model
         'feedback',
     ];
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
