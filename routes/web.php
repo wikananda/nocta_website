@@ -57,7 +57,7 @@ Route::get('/feedback', function () {
     return view('feedback');
 });
 
-Route::post('/become-tester', [UserController::class, 'updateTesterStatus'])->name('update.tester');
+Route::post('/become-tester/{gameId}', [UserController::class, 'updateTester'])->name('update.tester');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
