@@ -77,6 +77,7 @@ use Illuminate\Support\Facades\Auth;
                     }
                 </script>
             </div>
+
             {{-- <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/games'>games</a>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/feedback'>feedback</a>
@@ -182,7 +183,7 @@ use Illuminate\Support\Facades\Auth;
 
         <div class='px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
             <h2 class='text-3xl font-medium text-darkblue'>we are a growing team, and we need your help</h2>
-            <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing three games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
+            <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing two games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
             <div class='mt-10 flex md:flex-row md:space-x-16 flex-col space-y-16 md:space-y-0'>
                 <figure class="max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 hover:scale-105">
                     <a href="/before-silence">
