@@ -57,7 +57,7 @@
         </script>
 
         <div class='min-h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col mb-32'>
-            <button type="button" onclick="locataion.href='{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}';" class="max-w-xs w-16 mt-14 text-xl flex items-center justify-start text-darkred transition-all font-medium duration-200 bg-transparent gap-x-2 border-transparent border-b-2 hover:text-lightred hover:border-lightred focus:outline-non focus:outline-8">
+            <button type="button" onclick="window.history.back();" class="max-w-xs w-16 mt-14 text-xl flex items-center justify-start text-darkred transition-all font-medium duration-200 bg-transparent gap-x-2 border-transparent border-b-2 hover:text-lightred hover:border-lightred focus:outline-non focus:outline-8">
                 <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
@@ -119,7 +119,7 @@
                 <button type='submit' form='reply-form' class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
                     reply
                 </button>
-                <button type='button' onclick="" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
+                <button type='button' onclick="window.history.back();" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
                     close
                 </button>
             </div>
