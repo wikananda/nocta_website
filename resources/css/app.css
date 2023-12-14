@@ -9,3 +9,13 @@
       font-family: "League Spartan", system-ui, sans-serif;
     }
   }
+
+.play::before {
+    content: "▶";
+    /* Add more styles to position and style the icon... */
+}
+
+.pause::before {
+    content: "❚❚";
+    /* Add more styles to position and style the icon... */
+}

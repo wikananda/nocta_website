@@ -77,26 +77,6 @@ use Illuminate\Support\Facades\Auth;
                     }
                 </script>
             </div>
-
-            {{-- <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
-                <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/games'>games</a>
-                <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 hover:border-darkblue transition-all' href='/feedback'>feedback</a>
-            
-                @guest
-                    <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
-                        login
-                    </button>
-                @else
-                    <div class="flex items-center space-x-4">
-                        <span class="text-xl font-semibold text-black">{{ Auth::user()->name }}</span>
-                        <!-- Add logout button or link here -->
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <button type="submit" class="text-xl font-semibold text-whiteblue">logout</button>
-                        </form>
-                    </div>
-                @endguest
-            </div> --}}
             
 
         </header>
@@ -138,50 +118,64 @@ use Illuminate\Support\Facades\Auth;
             </div>
         </div>
 
-        
-
-        <!-- <div class="max-w-md mx-auto bg-white rounded-md p-4 shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-darkblue">Music Player</h1>
-            <audio id="song1" src='{{ asset("music/Menu Theme.mp3") }}'></audio>
-            <div class="flex items-center space-x-4">
-                <button id="playPauseBtn" class="bg-whiteblue text-darkblue px-4 py-2 rounded-full">Play</button>
-                <input type="range" id="volume" class="flex-1">
-                <span id="songInfo" class="text-darkblue"></span>
-            </div>
-        </div>
-
-        <div class="max-w-md mx-auto bg-white rounded-md p-4 shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-darkblue">Music Player</h1>
-            <audio id="song2" src='{{ asset("music/Reina Hut.mp3") }}'></audio>
-            <div class="flex items-center space-x-4">
-                <button id="playPauseBtn" class="bg-whiteblue text-darkblue px-4 py-2 rounded-full">Play</button>
-                <input type="range" id="volume" class="flex-1">
-                <span id="songInfo" class="text-darkblue"></span>
-            </div>
-        </div>
-
-        <div class="max-w-md mx-auto bg-white rounded-md p-4 shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-darkblue">Music Player</h1>
-            <audio id="song3" src='{{ asset("music/Mountain Forest Path.mp3") }}'></audio>
-            <div class="flex items-center space-x-4">
-                <button id="playPauseBtn" class="bg-whiteblue text-darkblue px-4 py-2 rounded-full">Play</button>
-                <input type="range" id="volume" class="flex-1">
-                <span id="songInfo" class="text-darkblue"></span>
-            </div>
-        </div> -->
-
-        <!-- <div class='h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
-            <div class='h-screen flex flex-col items-center justify-center'>
-                <p class='text-2xl font-light text-darkblue'>we pursue a clear goal:</p>
-                <div class='h-3/5 flex flex-col justify-center'>
-                    <p class='text-4xl md:text-6xl font-medium text-lightred mr-16 md:mr-44'>CReaTivity,</p>
-                    <p class='text-4xl md:text-6xl font-medium text-greenblue ml-10 md:ml-44'>imagination</p>
+        <div class="audio-player px-16 mt-10 2xl:px-64 xl:px-56 lg:px-40 md:px-32 h-screen flex flex-row items-center justify-between">
+            <div class='w-1/2'>
+                <h2 class='text-4xl text-darkblue font-semibold'>soundtracks.</h2>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Menu Theme.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Menu Theme</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
                 </div>
-                <p class='text-2xl font-light text-darkblue'>and <span class='text-4xl lg:text-6xl font-medium text-lightred'>FuN</span> aspect in each of our games</p>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Reina Hut.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Reina's Hut</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
+                </div>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Mountain Forest Path.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Mountain Forest Path</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
+                </div>
             </div>
-        </div> -->
 
-        <div class='px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
+            <img
+                src='{{ asset("img/babado amelia reina.gif") }}'
+                alt='dog'
+                width="100%"
+                height="100%"
+                class='hidden lg:w-80 lg:h-56 lg:mt-16 lg:flex xl:scale-150'
+            />
+
+        </div>
+
+        <div class='px-16 mt-10 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
             <h2 class='text-3xl font-medium text-darkblue'>we are a growing team, and we need your help</h2>
             <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing two games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
             <div class='mt-10 flex md:flex-row md:space-x-16 flex-col space-y-16 md:space-y-0'>
