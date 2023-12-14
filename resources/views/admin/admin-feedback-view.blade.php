@@ -42,8 +42,22 @@
             </div>
         </header>
 
+        @if(Session::has('success'))
+        <div id='alert' class="bg-greenblue border border-darkblue text-white px-4 py-3 relative" role="alert">
+            <span class="block sm:inline"> {{ Session::get('success') }} </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-white" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+        @endif
+        <script>
+            function closeAlert() {
+                document.getElementById('alert').style.display = 'none';
+            }
+        </script>
+
         <div class='min-h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col mb-32'>
-            <button type="button" class="max-w-xs w-16 mt-14 text-xl flex items-center justify-start text-darkred transition-all font-medium duration-200 bg-transparent gap-x-2 border-transparent border-b-2 hover:text-lightred hover:border-lightred focus:outline-non focus:outline-8">
+            <button type="button" onclick="locataion.href='{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}';" class="max-w-xs w-16 mt-14 text-xl flex items-center justify-start text-darkred transition-all font-medium duration-200 bg-transparent gap-x-2 border-transparent border-b-2 hover:text-lightred hover:border-lightred focus:outline-non focus:outline-8">
                 <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
@@ -83,15 +97,15 @@
             </div>
             <div class='mt-14'>
                 <h2 class='text-2xl font-semibold text-darkblue'>feedbacks</h2>
-                <p class='text-2xl font-light text-darkblue mt-5'>{{ $feedback->feedback }}</p>
+                <p class='text-2xl font-light text-darkblue mt-5 w-2/3'>{{ $feedback->feedback }}</p>
             </div>
 
             <div class='max-w-5xl'>
-                <form action="" method='POST'>
+                <form action="{{ route('feedback.reply', $feedback->id) }}" method='POST' id='reply-form'>
                     @csrf
                     <div class='mt-14'>
-                        <label class='text-2xl font-semibold text-darkblue' for="reply-title">reply title</label>
-                        <input type="text" id='reply-title' name='reply-title' class='bg-whiteblue w-full focus:ring-lightred font-medium text-darkblue text-2xl mt-3 border border-greenblue focus:transition-opacity' required>
+                        <label class='text-2xl font-semibold text-darkblue' for="title">reply title</label>
+                        <input type="text" id='title' name='title' class='bg-whiteblue w-full focus:ring-lightred font-medium text-darkblue text-2xl mt-3 border border-greenblue focus:transition-opacity' required>
                     </div>
 
                     <div class='mt-14'>
@@ -102,7 +116,7 @@
             </div>
 
             <div class='flex flex-row justify-between max-w-5xl mt-14'>
-                <button type='button' onclick="" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                <button type='submit' form='reply-form' class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
                     reply
                 </button>
                 <button type='button' onclick="" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
