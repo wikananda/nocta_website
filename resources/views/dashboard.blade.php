@@ -113,21 +113,67 @@
                 />
             </div>
         </div>
-
-        <!-- <div class='h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
-            <div class='h-screen flex flex-col items-center justify-center'>
-                <p class='text-2xl font-light text-darkblue'>we pursue a clear goal:</p>
-                <div class='h-3/5 flex flex-col justify-center'>
-                    <p class='text-4xl md:text-6xl font-medium text-lightred mr-16 md:mr-44'>CReaTivity,</p>
-                    <p class='text-4xl md:text-6xl font-medium text-greenblue ml-10 md:ml-44'>imagination</p>
+        
+        <div class="audio-player px-16 mt-10 2xl:px-64 xl:px-56 lg:px-40 md:px-32 h-screen flex flex-row items-center justify-between">
+            <div class='w-1/2'>
+                <h2 class='text-4xl text-darkblue font-semibold'>soundtracks.</h2>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Menu Theme.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Menu Theme</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
                 </div>
-                <p class='text-2xl font-light text-darkblue'>and <span class='text-4xl lg:text-6xl font-medium text-lightred'>FuN</span> aspect in each of our games</p>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Reina Hut.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Reina's Hut</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
+                </div>
+                <div class='mt-10 audio-container'>
+                    <audio id="audio" class='audio'>
+                        <source src="{{ asset('music/Mountain Forest Path.mp3') }}" type="audio/mpeg">
+                    </audio>
+                    <div class="controls bg-white shadow-md px-5 py-5">
+                        <div><h2 class='text-2xl text-darkblue font-medium'>Mountain Forest Path</h2></div>
+                        <!-- <div id="play-pause-button" class="play mt-2"></div> -->
+                        <div class='flex flex-row items-center space-x-10'>
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
+                        </div>
+                        <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
+                    </div>
+                </div>
             </div>
-        </div> -->
+
+            <img
+                src='{{ asset("img/babado amelia reina.gif") }}'
+                alt='dog'
+                width="100%"
+                height="100%"
+                class='hidden lg:w-80 lg:h-56 lg:mt-16 lg:flex xl:scale-150'
+            />
+
+        </div>
 
         <div class='px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
             <h2 class='text-3xl font-medium text-darkblue'>we are a growing team, and we need your help</h2>
-            <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing three games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
+            <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing two games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
             <div class='mt-10 flex md:flex-row md:space-x-16 flex-col space-y-16 md:space-y-0'>
                 <figure class="max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 hover:scale-105">
                     <a href="/before-silence">

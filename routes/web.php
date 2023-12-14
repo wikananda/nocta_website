@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +23,14 @@ Route::prefix('admin')->group(function (){
     Route::post('/login/owner', [AdminController::class, 'Login'])->name('admin.login');
     Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
     Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
-    Route::get('/before-silence', function (){
-        return view('admin.admin-before-silence');
-    })->name('admin.before-silence')->middleware('admin');
+    Route::get('/{game}', [AdminController::class, 'showGameFeedbacks'])->name('admin.game-feedback')->middleware('admin');
+    Route::get('/{game}/{id}', [FeedbackController::class, 'show'])->name('feedback.show');
+    Route::post('/feedback/{id}/reply', [FeedbackController::class, 'reply'])->name('feedback.reply');
 });
 
 
-
+/* ---------------------------- Feedback Route --------------------------- */
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 /* ---------------------------- User Route ---------------------------- */
@@ -65,4 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
 require __DIR__.'/auth.php';
+

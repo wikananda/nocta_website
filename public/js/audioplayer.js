@@ -1,72 +1,56 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const audioElements = [
-        document.getElementById('song1'),
-        document.getElementById('song2'),
-        document.getElementById('song3')
-    ];
+var audioContainers = document.getElementsByClassName('audio-container');
+console.log('audio count: ', audioContainers.length)
+for (let i = 0; i < audioContainers.length; i++) {
+    let audio = audioContainers[i].getElementsByClassName('audio')[0];
+    let playPauseButton = audioContainers[i].getElementsByClassName('play-pause-button')[0];
+    let seekSlider = audioContainers[i].getElementsByClassName('seek-slider')[0];
+    let currentTime = audioContainers[i].getElementsByClassName('current-time')[0];
 
-    const playPauseBtns = [
-        document.getElementById('playPauseBtn1'),
-        document.getElementById('playPauseBtn2'),
-        document.getElementById('playPauseBtn3')
-    ];
-
-    const volumeSliders = [
-        document.getElementById('volume1'),
-        document.getElementById('volume2'),
-        document.getElementById('volume3')
-    ];
-
-    const songInfoElements = [
-        document.getElementById('songInfo1'),
-        document.getElementById('songInfo2'),
-        document.getElementById('songInfo3')
-    ];
-
-    audioElements.forEach((audio, index) => {
-		let title = 'Song'
-		switch (index) {
-			case 0:
-				title = 'Menu Theme'
-				break
-			case 1:
-				title = 'Reina\'s Hut'
-				break
-			case 2:
-				title = 'Mountain Forest Path'
-				break
-			default:
-				title = 'Song'
-		}
-        audio.addEventListener('loadedmetadata', function () {
-            const duration = formatTime(audio.duration);
-            songInfoElements[index].textContent = `${title} - ${duration}`;
+    if (audio && playPauseButton && seekSlider && currentTime) {
+        playPauseButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.classList.remove('play');
+                playPauseButton.classList.add('pause');
+            } else {
+                audio.pause();
+                playPauseButton.classList.remove('pause');
+                playPauseButton.classList.add('play');
+            }
         });
-    });
 
-    function togglePlayPause(index) {
-        const audio = audioElements[index];
-        const playPauseBtn = playPauseBtns[index];
+        audio.addEventListener('loadedmetadata', function(){
+            seekSlider.max = audio.duration;
+            seekSlider.value = 0;
+        });
 
-        if (audio.paused) {
-            audio.play();
-            playPauseBtn.textContent = 'Pause';
-        } else {
+        audio.addEventListener('timeupdate', function() {
+            seekSlider.value = audio.currentTime;
+            currentTime.textContent = formatTime(audio.currentTime);
+        });
+
+        seekSlider.addEventListener('input', function() {
+            try {
+                audio.currentTime = seekSlider.value;
+            } catch (e) {
+                console.log('Failed to set audio currentTime: ', e);
+            }
+        });
+
+        seekSlider.addEventListener('mousedown', function() {
             audio.pause();
-            playPauseBtn.textContent = 'Play';
-        }
-    }
+        });
 
-    function adjustVolume(index) {
-        const audio = audioElements[index];
-        const volumeSlider = volumeSliders[index];
-
-        audio.volume = volumeSlider.value;
+        seekSlider.addEventListener('mouseup', function() {
+            audio.play();
+        });
+    } else {
+        console.log('One or more elements not found');
     }
+}
 
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    }
-});
+function formatTime(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+}

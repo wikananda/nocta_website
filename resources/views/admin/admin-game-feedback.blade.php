@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Admin Dashboard</title>
+        <title>Feedback Admin - {{ ucwords(str_replace('-', ' ', $game)) }}</title>
         @vite('resources/css/app.css')
 
         <!-- Fonts -->
@@ -36,23 +36,37 @@
                 <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
                     dashboard
                 </button>
-                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
+                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all focus:outline-none focus:outline-8'>
                     logout
                 </button>
             </div>
         </header>
-
-        <div class='h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
-            <h2 class='text-3xl font-medium text-darkblue'>welcome, <span class='text-lightred'>{{ Auth::guard('admin')->user()->username }}</span></h2>
-            <a href="{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}" class='w-full h-1/4 mt-5 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
-                <h2 class='text-lightred text-3xl font-medium'>Before Silence</h2>
-            </a>
-            <a href="{{ route('admin.game-feedback', ['game' => 'Gravity Jump']) }}" class='w-full h-1/4 mt-10 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
-                <h2 class='text-lightred text-3xl font-medium'>Gravity Jump</h2>
-            </a>
+        <div class='min-h-screen px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
+            <div class='w-full h-40 bg-darkblue px-5 py-5 flex items-end'>
+                <h2 class='text-lightred text-3xl font-medium'>{{ ucwords(str_replace('-', ' ', $game)) }}</h2>
+            </div>
+            <table class='table-auto mt-16 mb-16 text-left'>
+                <thead class='font-semibold text-darkblue text-xl'>
+                    <tr>
+                        <th class='pb-5'>game</th>
+                        <th class='pb-5'>feedback type</th>
+                        <th class='pb-5'>title</th>
+                    </tr>
+                </thead>
+                <tbody class='font-normal text-darkblue text-xl'>
+                    @foreach($feedbacks as $feedback)
+                        <tr>
+                            <td class='py-10 pr-2'>{{ $feedback->game }}</td>
+                            <td class='py-10 pr-2'>{{ $feedback->type }}</td>
+                            <td class='py-10 pr-2'>{{ $feedback->title }}</td>
+                            <td class='text-right py-10 pr-2'>
+                                <a href="{{ route('feedback.show', [$feedback->game, $feedback->id]) }}" class='px-6 py-4 bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>view</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        </div>
-
         <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center mt-auto'>
             <div class='w-full flex items-center justify-between lg:justify-center space-x-0 lg:space-x-28'>
                 <a href='/'>
