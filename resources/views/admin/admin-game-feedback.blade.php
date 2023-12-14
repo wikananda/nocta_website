@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Feedback Admin</title>
+        <title>Feedback Admin - {{ ucwords(str_replace('-', ' ', $game)) }}</title>
         @vite('resources/css/app.css')
 
         <!-- Fonts -->
@@ -60,7 +60,7 @@
                             <td class='py-10 pr-2'>{{ $feedback->type }}</td>
                             <td class='py-10 pr-2'>{{ $feedback->title }}</td>
                             <td class='text-right py-10 pr-2'>
-                                <a href='' class='px-6 py-4 bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>view</a>
+                                <a href="{{ route('feedback.show', [$feedback->game, $feedback->id]) }}" class='px-6 py-4 bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>view</a>
                             </td>
                         </tr>
                     @endforeach
