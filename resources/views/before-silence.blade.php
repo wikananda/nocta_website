@@ -85,9 +85,11 @@
         <div class='px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='flex justify-between flex-col lg:flex-row'>
                 <h2 class='text-2xl lg:text-4xl md:text-4xl xl:text-6xl font-medium text-whiteblue mt-14'>Before Silence</h2>
-                <button type='button' onclick="location.href='/register';" class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
-                    become tester
-                </button>
+                <form action="{{ route('update.tester') }}" method = 'post' id = 'become-tester'>
+                    <button type='submit' form='become-tester' class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                        become tester
+                    </button>
+                </form>
             </div>
             <div class='w-full lg:w-2/5'>
                 <p class='text-xl lg:text-2xl font-light text-whiteblue mt-8'>Before Silence is a retro pixel style RPG which implements turn based combat and rich narratives.</p>
