@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,8 @@ Route::get('/gravity-jump', function () {
 Route::get('/feedback', function () {
     return view('feedback');
 });
+
+Route::post('/become-tester/{gameId}', [UserController::class, 'updateTester'])->name('update.tester');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
