@@ -73,6 +73,27 @@
             </div>
         </header>
 
+        @if(Session::has('success'))
+        <div id='alert' class="bg-greenblue border border-darkblue text-white px-4 py-3 relative" role="alert">
+            <span class="block sm:inline"> {{ Session::get('success') }} </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-white" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+        @elseif(Session::has('status'))
+        <div id='alert' class="bg-white border border-greenblue text-darkblue px-4 py-3 relative" role="alert">
+            <span class="block sm:inline"> {{ Session::get('status') }} </span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-darkblue" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+        @endif
+        <script>
+            function closeAlert() {
+                document.getElementById('alert').style.display = 'none';
+            }
+        </script>
+
         <div>
             <img
                 src='{{ asset("img/Gravity Jump wallpaper.png") }}'
@@ -80,13 +101,35 @@
                 class='object-none h-screen/2 w-full'
             />
         </div>
+        
+        <form action="{{ route('update.tester', ['gameId' => 2]) }}" method='POST' id='become-tester' class='w-full'>
+            @csrf
+            <input type='hidden' name='tester-game1' value='tester-game1'>
+        </form>
 
         <div class='h-screen-4/6 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='flex justify-between flex-col lg:flex-row'>
                 <h2 class='text-2xl lg:text-4xl md:text-4xl xl:text-6xl font-medium text-whiteblue mt-14'>Gravity Jump</h2>
-                <button type='button' onclick="location.href='/register';" class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
-                    become tester
-                </button>
+                @if(Auth::check())
+                    @if(Auth::user()->select('tester-game2'))
+                        <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
+                            <button type='button' onclick='' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                                download
+                            </button>
+                            <p class='text-whiteblue font-normal mt-2 text-center'>You are a tester!</p>
+                        </div>
+                    @else
+                        <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
+                            <button type='submit' form='become-tester' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                                become tester
+                            </button>
+                        </div>
+                    @endif
+                @else
+                    <button type='button' onclick="location.href='/login';" class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                        become tester
+                    </button>
+                @endif
             </div>
             <div class='w-full lg:w-2/5'>
                 <p class='text-xl lg:text-2xl font-light text-whiteblue mt-8'>Gravity Jump is an endless runner mobile game with interesting obstacles and power ups, all controlled in single click.</p>
