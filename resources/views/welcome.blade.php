@@ -123,13 +123,13 @@ use Illuminate\Support\Facades\Auth;
                 <h2 class='text-4xl text-darkblue font-semibold'>soundtracks.</h2>
                 <div class='mt-10 audio-container'>
                     <audio id="audio" class='audio'>
-                        <source src="{{ asset('music/Menu Theme.mp3') }}" type="audio/mpeg">
+                        <source src="{{ asset('music/Menu Theme.mp3') }}" type="audio/mpeg">              
                     </audio>
                     <div class="controls bg-white shadow-md px-5 py-5">
                         <div><h2 class='text-2xl text-darkblue font-medium'>Menu Theme</h2></div>
                         <!-- <div id="play-pause-button" class="play mt-2"></div> -->
                         <div class='flex flex-row items-center space-x-10'>
-                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" step="1">
+                            <input id="seek-slider" class="seek-slider slider mt-2 w-full" type="range" min="0" max="100" step="1">
                             <div id='play-pause-button' class='play-pause-button play cursor-pointer shadow-lg bg-greenblue text-whiteblue w-16 h-14 rounded-full flex justify-center items-center'></div>
                         </div>
                         <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
@@ -175,65 +175,6 @@ use Illuminate\Support\Facades\Auth;
 
         </div>
 
-        <!-- <script>
-            var audioContainers = document.getElementsByClassName('audio-container');
-            console.log('audio count: ', audioContainers.length)
-            for (let i = 0; i < audioContainers.length; i++) {
-                let audio = audioContainers[i].getElementsByClassName('audio')[0];
-                let playPauseButton = audioContainers[i].getElementsByClassName('play-pause-button')[0];
-                let seekSlider = audioContainers[i].getElementsByClassName('seek-slider')[0];
-                let currentTime = audioContainers[i].getElementsByClassName('current-time')[0];
-
-                if (audio && playPauseButton && seekSlider && currentTime) {
-                    playPauseButton.addEventListener('click', function() {
-                        if (audio.paused) {
-                            audio.play();
-                            playPauseButton.classList.remove('play');
-                            playPauseButton.classList.add('pause');
-                        } else {
-                            audio.pause();
-                            playPauseButton.classList.remove('pause');
-                            playPauseButton.classList.add('play');
-                        }
-                    });
-
-                    audio.addEventListener('loadedmetadata', function(){
-                        seekSlider.max = audio.duration;
-                        seekSlider.value = 0;
-                    });
-
-                    audio.addEventListener('timeupdate', function() {
-                        seekSlider.value = audio.currentTime;
-                        currentTime.textContent = formatTime(audio.currentTime);
-                    });
-
-                    seekSlider.addEventListener('input', function() {
-                        try {
-                            audio.currentTime = seekSlider.value;
-                        } catch (e) {
-                            console.log('Failed to set audio currentTime: ', e);
-                        }
-                    });
-
-                    seekSlider.addEventListener('mousedown', function() {
-                        audio.pause();
-                    });
-
-                    seekSlider.addEventListener('mouseup', function() {
-                        audio.play();
-                    });
-                } else {
-                    console.log('One or more elements not found');
-                }
-            }
-
-            function formatTime(seconds) {
-                var minutes = Math.floor(seconds / 60);
-                seconds = Math.floor(seconds % 60);
-                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-            }
-        </script> -->
-
         <div class='px-16 mt-10 2xl:px-64 xl:px-56 lg:px-40 md:px-32 flex flex-col'>
             <h2 class='text-3xl font-medium text-darkblue'>we are a growing team, and we need your help</h2>
             <p class='text-2xl font-light text-darkblue mt-5'>we are currently developing two games, <br> we would really appreciate if you could test and provide feedbacks for us.</p>
@@ -251,9 +192,16 @@ use Illuminate\Support\Facades\Auth;
                     <p class='text-2xl font-medium text-darkblue mt-2'>Gravity Jump</p>
                 </figure>
             </div>
-            <button type='button' onclick="location.href='/register';" class='w-full md:w-1/2 lg:w-1/4 xl:w-1/6 mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
-                become tester
-            </button>
+
+            @if(Auth::check())
+                <button type='button' onclick="location.href='/games';" class='w-full md:w-1/2 lg:w-1/4 xl:w-1/6 mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                    become tester
+                </button>
+            @else
+                <button type='button' onclick="location.href='/register';" class='w-full md:w-1/2 lg:w-1/4 xl:w-1/6 mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                    become tester
+                </button>
+            @endif
             <div class='h-32'>
             </div>
         </div>
