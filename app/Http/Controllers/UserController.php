@@ -9,7 +9,7 @@ class UserController extends Controller
     public function updateTester(Request $request, $gameId)
     {
         $user = $request->user();
-        $gameColumn = 'tester-game' . $gameId;
+        $gameColumn = 'tester_game' . $gameId;
     
         if ($user->$gameColumn == 0) {
             $user->$gameColumn = 1;

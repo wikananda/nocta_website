@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Feedback;
 use App\Models\User;
+use App\Models\Reply;
 
 class AdminController extends Controller
 {
@@ -15,11 +16,11 @@ class AdminController extends Controller
 
     public function Dashboard(){
         $userCount = User::count();
-        $testerCount = User::where('tester-game1', 1)
-                            ->orWhere('tester-game2', 1)
+        $testerCount = User::where('tester_game1', 1)
+                            ->orWhere('tester_game2', 1)
                             ->count();
-        $game1TesterCount = User::where('tester-game1', 1)->count();
-        $game2TesterCount = User::where('tester-game2', 1)->count();
+        $game1TesterCount = User::where('tester_game1', 1)->count();
+        $game2TesterCount = User::where('tester_game2', 1)->count();
         $game1FeedbackCount = Feedback::where('game', 'Before Silence')->count();
         $game2FeedbackCount = Feedback::where('game', 'Gravity Jump')->count();
         $feedbackCount = Feedback::count();
@@ -31,6 +32,35 @@ class AdminController extends Controller
                                             'feedbackCount' => $feedbackCount,
                                             'game1FeedbackCount' => $game1FeedbackCount,
                                             'game2FeedbackCount' => $game2FeedbackCount]);
+    }
+
+    public function Details(){
+        $users = User::all();
+        $userCount = User::count();
+        $testerCount = User::where('tester_game1', 1)
+                            ->orWhere('tester_game2', 1)
+                            ->count();
+        $game1TesterCount = User::where('tester_game1', 1)->count();
+        $game2TesterCount = User::where('tester_game2', 1)->count();
+        $game1FeedbackCount = Feedback::where('game', 'Before Silence')->count();
+        $game2FeedbackCount = Feedback::where('game', 'Gravity Jump')->count();
+        $feedbackCount = Feedback::count();
+
+        return view('admin.admin-details', ['users' => $users,
+                                            'userCount' => $userCount, 
+                                            'testerCount' => $testerCount,
+                                            'game1TesterCount' => $game1TesterCount,
+                                            'game2TesterCount' => $game2TesterCount,
+                                            'feedbackCount' => $feedbackCount,
+                                            'game1FeedbackCount' => $game1FeedbackCount,
+                                            'game2FeedbackCount' => $game2FeedbackCount]);
+    }
+
+    public function UserDetails($id){
+        $users = User::findOrFail($id);
+        $feedbacks = Feedback::where('user_id', $id)->get();
+        $replies = Reply::where('feedback_id', $feedbacks->id)->get();
+        return view('admin.admin-user-details', ['users' => $users, 'feedbacks' => $feedbacks, 'replies' => $replies]);
     }
 
     public function Index(){
