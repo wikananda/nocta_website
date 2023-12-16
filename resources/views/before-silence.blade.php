@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 @else
-                    <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                    <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                         login
                     </button>
                 @endif
@@ -114,7 +114,7 @@
                     @if(Auth::user()->select('tester-game1'))
                         <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
                             <a href="https://drive.google.com/file/d/1jmaNt-MLEFUWfBfu17TTueVWo7ucdc7F/view?usp=sharing" target="_blank" download>
-                                <button type='button' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                                <button type='button' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                                     download
                                 </button>
                             </a>
@@ -122,13 +122,13 @@
                         </div>
                     @else
                         <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
-                            <button type='submit' form='become-tester' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                            <button type='submit' form='become-tester' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                                 become tester
                             </button>
                         </div>
                     @endif
                 @else
-                    <button type='button' onclick="location.href='/login';" class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                    <button type='button' onclick="location.href='/login';" class='w-full lg:w-1/3 xl:w-1/6 mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                         become tester
                     </button>
                 @endif

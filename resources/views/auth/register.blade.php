@@ -101,7 +101,7 @@
                             {{ __('Already registered?') }}
                         </a>
 
-                        <button type='submit' form='register-form' value='Submit' class='max-w-xs w-40 mt-2 px-7 py-4 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                        <button type='submit' form='register-form' value='Submit' class='max-w-xs w-40 mt-2 px-7 py-4 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                             {{ __('Register') }}
                         </button>
                     </div>
