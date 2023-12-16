@@ -57,10 +57,23 @@ class AdminController extends Controller
     }
 
     public function UserDetails($id){
-        $users = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $feedbacks = Feedback::where('user_id', $id)->get();
-        $replies = Reply::where('feedback_id', $feedbacks->id)->get();
-        return view('admin.admin-user-details', ['users' => $users, 'feedbacks' => $feedbacks, 'replies' => $replies]);
+        $replies = collect();
+
+        foreach ($feedbacks as $feedback) {
+            $repliesForFeedback = Reply::where('feedback_id', $feedback->id)->get();
+            $replies = $replies->concat($repliesForFeedback);
+        }
+        return view('admin.admin-user-details', ['user' => $user, 'feedbacks' => $feedbacks, 'replies' => $replies]);
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.details')->with('success', 'User deleted successfully');
     }
 
     public function Index(){

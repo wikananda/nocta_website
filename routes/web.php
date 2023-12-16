@@ -23,6 +23,8 @@ Route::prefix('admin')->group(function (){
     Route::post('/login/owner', [AdminController::class, 'Login'])->name('admin.login');
     Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
     Route::get('/details', [AdminController::class, 'Details'])->name('admin.details')->middleware('admin');
+    Route::get('/details/user/{id}', [AdminController::class, 'UserDetails'])->name('admin.user-details')->middleware('admin');
+    Route::delete('/details/users/{id}', [AdminController::class, 'deleteUser'])->name('admin.delete-user');
     Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
     Route::get('/{game}', [AdminController::class, 'showGameFeedbacks'])->name('admin.game-feedback')->middleware('admin');
     Route::get('/{game}/{id}', [FeedbackController::class, 'show'])->name('feedback.show');

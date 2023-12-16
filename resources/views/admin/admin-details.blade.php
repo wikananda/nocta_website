@@ -42,6 +42,15 @@
             </div>
         </header>
 
+        @if(Session::has('success'))
+            <div id='alert' class="bg-greenblue border border-darkblue text-white px-4 py-3 relative" role="alert">
+                <span class="block sm:inline"> {{ Session::get('success') }} </span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <svg class="fill-current h-6 w-6 text-white" onclick="closeAlert()" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+        @endif
+
         <div class='min-h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='flex flex-row justify-between items-center'>
                 <div class='flex flex-row justify-between w-2/3'>
@@ -84,14 +93,18 @@
                             <td class='w-1/10 py-8 px-4 overflow-auto break-all'>{{ $user->created_at }}</td>
                             <td class='w-1/10 py-8 px-4 overflow-auto break-all'>{{ $user->updated_at }}</td>
                             <td class='w-full py-8 pl-4 flex flex-col items-end space-y-5'>
-                                <a href="" class='w-1/2 px-3 py-2 text-center bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>view</a>
-                                <a href="" class='w-1/2 px-3 py-2 text-center bg-lightred text-darkblue border-2 border-lightred font-semibold hover:bg-transparent hover:text-lightred transition-all focus:outline-none focus:outline-8'>delete</a>
+                                <a href="{{ route('admin.user-details', ['id' => $user->id]) }}" class='w-1/2 px-3 py-2 text-center bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>view</a>
+                                <button form='delete-user' class='w-1/2 px-3 py-2 text-center bg-lightred text-darkblue border-2 border-lightred font-semibold hover:bg-transparent hover:text-lightred transition-all focus:outline-none focus:outline-8'>delete</button>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <form id='delete-user' method="POST" action="{{ route('admin.delete-user', $user->id) }}">
+            @csrf
+            @method('DELETE')
+        </form>
 
 
         <footer class='h-screen/4 xl:h-screen/3 bg-darkblue px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-10 flex flex-col justify-center items-center mt-auto'>
