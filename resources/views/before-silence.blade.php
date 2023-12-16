@@ -94,12 +94,12 @@
             }
         </script>
 
-        <div>
-            <img
+        <div class='h-screen-4/6 bg-cover' style="background-image: url('{{ asset('img/Before Silence wallpaper cropped.png') }}');">
+            <!-- <img
                 src='{{ asset("img/Before Silence wallpaper.png") }}'
                 alt='before-silence'
-                class='object-none h-screen/2 w-full'
-            />
+                class='object-cover w-full'
+            /> -->
              
         </div>
 

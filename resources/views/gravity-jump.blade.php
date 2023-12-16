@@ -94,12 +94,12 @@
             }
         </script>
 
-        <div>
-            <img
+        <div class='h-screen-4/6 bg-cover' style="background-image: url('{{ asset('img/Gravity Jump wallpaper cropped.png') }}');">
+            <!-- <img
                 src='{{ asset("img/Gravity Jump wallpaper.png") }}'
                 alt='before-silence'
                 class='object-none h-screen/2 w-full'
-            />
+            /> -->
         </div>
         
         <form action="{{ route('update.tester', ['gameId' => 2]) }}" method='POST' id='become-tester' class='w-full'>
