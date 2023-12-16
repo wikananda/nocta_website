@@ -17,7 +17,14 @@ class FeedbackController extends Controller
             'title' => 'required',
             'feedback' => 'required',
         ]);
-
+        $user_id = auth()->id();
+        $user = User::findOrFail($user_id);
+        if($user->tester_game1 == 0 && $validateData['game'] == 'Before Silence'){
+            return back()->with('error', 'You are not a tester');
+        }
+        if($user->tester_game2 == 0 && $validateData['game'] == 'Gravity Jump'){
+            return back()->with('error', 'You are not a tester');
+        }
         $feedback = new Feedback($validateData);
         $feedback->user_id = auth()->id();
         $feedback->save();

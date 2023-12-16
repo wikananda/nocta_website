@@ -81,7 +81,7 @@
                             {{ __('log in') }}
                         </button>
                         <a class="underline text-sm text-darkblue dark:text-darkblue hover:text-darkred dark:hover:text-darkred focus:outline-none transition-all" href="{{ route('register') }}">
-                            {{ __('Don\'t have account?') }}
+                            {{ __('don\'t have account?') }}
                         </a>
 
                         <!-- <div class='flex flex-col space-y-3 mt-10'>

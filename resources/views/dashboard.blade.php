@@ -55,8 +55,8 @@
                         </div>
                     </div>
                 @else
-                    <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
-                        login
+                    <button type='button' onclick="location.href='/register';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
+                        register
                     </button>
                 @endif
                 <script>
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class='flex flex-col justify-center px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
-            <p class='mt-32 text-4xl font-normal text-darkblue'>we are <span class='text-4xl font-normal'>independent video game studio</span> <br> based in Bali, Indonesia</p>
+            <p class='mt-32 text-4xl font-normal text-darkblue'>we are an <span class='text-4xl font-normal'>independent video game studio</span> <br> based in Bali, Indonesia</p>
         </div>
 
         <div class='w-full'>

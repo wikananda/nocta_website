@@ -113,7 +113,7 @@
                 @if(Auth::check())
                     @if(Auth::user()->tester_game2)
                         <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
-                            <a href="https://drive.google.com/file/d/19t585fIwvDXGsslnsYvw0qPwRWMExau6/view?usp=sharing" target="_blank" download>
+                            <a href="https://drive.google.com/u/0/uc?id=19t585fIwvDXGsslnsYvw0qPwRWMExau6&export=download" target="_blank" download>
                                 <button type='button' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                                     download
                                 </button>
