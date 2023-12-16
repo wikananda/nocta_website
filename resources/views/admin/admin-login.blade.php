@@ -33,7 +33,7 @@
             <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/games'>games</a>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/feedback'>feedback</a>
-                <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                     user login
                 </button>
             </div>
@@ -79,7 +79,7 @@
                         <input type="password" id='password' name='password' class='bg-whiteblue w-full focus:ring-lightred font-medium text-darkblue text-2xl mt-3 border border-greenblue focus:transition-opacity' required>
                     </div>
 
-                    <button type='submit' form='admin-login-form' value='Submit' class='mt-14 mb-20 px-7 py-4 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                    <button type='submit' form='admin-login-form' value='Submit' class='mt-14 mb-20 px-7 py-4 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                         login
                     </button>
                 </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Feedback;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,23 @@ class AdminController extends Controller
     // }
 
     public function Dashboard(){
-        return view('admin.admin-dashboard');
+        $userCount = User::count();
+        $testerCount = User::where('tester-game1', 1)
+                            ->orWhere('tester-game2', 1)
+                            ->count();
+        $game1TesterCount = User::where('tester-game1', 1)->count();
+        $game2TesterCount = User::where('tester-game2', 1)->count();
+        $game1FeedbackCount = Feedback::where('game', 'Before Silence')->count();
+        $game2FeedbackCount = Feedback::where('game', 'Gravity Jump')->count();
+        $feedbackCount = Feedback::count();
+
+        return view('admin.admin-dashboard', ['userCount' => $userCount, 
+                                            'testerCount' => $testerCount,
+                                            'game1TesterCount' => $game1TesterCount,
+                                            'game2TesterCount' => $game2TesterCount,
+                                            'feedbackCount' => $feedbackCount,
+                                            'game1FeedbackCount' => $game1FeedbackCount,
+                                            'game2FeedbackCount' => $game2FeedbackCount]);
     }
 
     public function Index(){

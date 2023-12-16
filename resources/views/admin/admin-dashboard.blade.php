@@ -33,10 +33,10 @@
             <div class='hidden md:flex items-center lg:space-x-16 md:space-x-6'>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/games'>games</a>
                 <a class='font-semibold text-xl text-darkblue border-transparent border-b-2 focus:outline-none focus:outline-4 focus:border-none hover:border-darkblue transition-all' href='/feedback'>feedback</a>
-                <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue transition-all'>
+                <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                     dashboard
                 </button>
-                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred transition-all'>
+                <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred focus:outline-none focus:outline-8 transition-all'>
                     logout
                 </button>
             </div>
@@ -44,11 +44,55 @@
 
         <div class='h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <h2 class='text-3xl font-medium text-darkblue'>welcome, <span class='text-lightred'>{{ Auth::guard('admin')->user()->username }}</span></h2>
-            <a href="{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}" class='w-full h-1/4 mt-5 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
-                <h2 class='text-lightred text-3xl font-medium'>Before Silence</h2>
+            <div class='py-10 flex flex-row justify-between items-center'>
+                <div class='flex flex-row justify-between w-2/3'>
+                    <div class='text-darkblue'>
+                        <h2 class='text-7xl text-lightred'>{{ $userCount }}</h2>
+                        <p class='text-xl'>total registered accounts</p>
+                    </div>
+                    <div class='text-darkblue'>
+                        <h2 class='text-7xl text-lightred'>{{ $testerCount }}</h2>
+                        <p class='text-xl'>total registered testers</p>
+                    </div>
+                    <div class='text-darkblue'>
+                        <h2 class='text-7xl text-lightred'>{{ $feedbackCount }}</h2>
+                        <p class='text-xl'>total feedbacks</p>
+                    </div>
+                </div>
+                
+                <a href="" class='px-6 py-4 h-1/2 bg-greenblue text-whiteblue border-2 border-greenblue font-semibold hover:bg-whiteblue hover:text-greenblue transition-all focus:outline-none focus:outline-8'>details</a>
+
+            </div>
+            <a href="{{ route('admin.game-feedback', ['game' => 'Before Silence']) }}" class='w-full h-1/4 mt-5 bg-darkblue px-14 py-5 flex items-center hover:cursor-pointer hover:scale-105 transition-all'>
+                <div class='w-full flex items-end'>
+                    <h2 class='text-lightred text-3xl font-medium'>Before Silence</h2>
+                </div>
+                <div class='text-whiteblue flex flex-row space-x-10'>
+                    <div class=''>
+                        <h2 class='text-5xl text-lightred text-center'>{{ $game1TesterCount }}</h2>
+                        <p class='text-xl text-center'>registered testers</p>
+                    </div>
+                    <div>
+                        <h2 class='text-5xl text-lightred text-center'>{{ $game1FeedbackCount }}</h2>
+                        <p class='text-xl text-center'>feedbacks</p>
+                    </div>
+                </div>
+
             </a>
-            <a href="{{ route('admin.game-feedback', ['game' => 'Gravity Jump']) }}" class='w-full h-1/4 mt-10 bg-darkblue px-5 py-5 flex items-end hover:cursor-pointer hover:scale-105 transition-all'>
-                <h2 class='text-lightred text-3xl font-medium'>Gravity Jump</h2>
+            <a href="{{ route('admin.game-feedback', ['game' => 'Gravity Jump']) }}" class='w-full h-1/4 mt-10 bg-darkblue px-14 py-5 flex items-center hover:cursor-pointer hover:scale-105 transition-all'>
+                <div class='w-full flex items-end'>
+                    <h2 class='text-lightred text-3xl font-medium'>Gravity Jump</h2>
+                </div>
+                <div class='text-whiteblue flex flex-row space-x-10'>
+                    <div class=''>
+                        <h2 class='text-5xl text-lightred text-center'>{{ $game2TesterCount }}</h2>
+                        <p class='text-xl text-center'>registered testers</p>
+                    </div>
+                    <div>
+                        <h2 class='text-5xl text-lightred text-center'>{{ $game2FeedbackCount }}</h2>
+                        <p class='text-xl text-center'>feedbacks</p>
+                    </div>
+                </div>
             </a>
         </div>
         </div>
