@@ -113,9 +113,11 @@
                 @if(Auth::check())
                     @if(Auth::user()->select('tester-game1'))
                         <div class='flex flex-col lg:w-1/3 xl:w-1/6 justify-center'>
-                            <button type='button' onclick='' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
-                                download
-                            </button>
+                            <a href="https://drive.google.com/file/d/1jmaNt-MLEFUWfBfu17TTueVWo7ucdc7F/view?usp=sharing" target="_blank" download>
+                                <button type='button' class='w-full mt-8 md:mt-14 px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue transition-all'>
+                                    download
+                                </button>
+                            </a>
                             <p class='text-whiteblue font-normal mt-2 text-center'>You are a tester!</p>
                         </div>
                     @else
