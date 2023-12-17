@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Feedback;
 use App\Models\User;
 use App\Models\Reply;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -66,6 +67,28 @@ class AdminController extends Controller
             $replies = $replies->concat($repliesForFeedback);
         }
         return view('admin.admin-user-details', ['user' => $user, 'feedbacks' => $feedbacks, 'replies' => $replies]);
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $id],
+            'username' => ['required', 'string', 'max:255', 'unique:users,username,' . $id],
+            'age' => ['required', 'integer'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        if ($validatedData['password']) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        } else {
+            unset($validatedData['password']);
+        }
+
+        $user->update($validatedData);
+
+        return back()->with('success', 'User updated successfully');
     }
 
     public function deleteUser($id)

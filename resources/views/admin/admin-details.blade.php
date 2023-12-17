@@ -50,6 +50,11 @@
                 </span>
             </div>
         @endif
+        <script>
+            function closeAlert() {
+                document.getElementById('alert').style.display = 'none';
+            }
+        </script>
 
         <div class='min-h-screen mt-36 px-16 2xl:px-64 xl:px-56 lg:px-40 md:px-32'>
             <div class='flex flex-row justify-between items-center'>

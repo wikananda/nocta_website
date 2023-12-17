@@ -159,6 +159,9 @@
                         <div id="current-time" class='current-time text-darkblue font-light'>0:00</div>
                     </div>
                 </div>
+                <p class='text-darkblue mt-10'>more soundtracks at: 
+                    <a href='https://soundcloud.com/komang-wikananda' target="_blank" class='text-lightred border-transparent border-b-2 hover:border-lightred focus:outline-none focus:outline-4 transition-all'>https://soundcloud.com/komang-wikananda</a>
+                </p>
             </div>
 
             <img
