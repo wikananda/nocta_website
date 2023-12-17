@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
     </head>
 
     <body class='bg-whiteblue flex flex-col min-h-screen'>
-        <header class='flex items-center justify-between px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b z-10'>
+    <header class='flex items-center justify-between px-8 2xl:px-64 xl:px-56 lg:px-40 md:px-32 py-5 border-greenblue border-b z-10'>
             <a href='/'>
                 <img
                     src='{{ asset("img/nocta-logo darkblue.png") }}'
@@ -58,6 +58,13 @@ use Illuminate\Support\Facades\Auth;
                             </form>
                         </div>
                     </div>
+                @elseif(Auth::guard('admin')->check())
+                    <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
+                        dashboard
+                    </button>
+                    <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-whiteblue hover:border-lightred hover:text-lightred focus:outline-none focus:outline-8 transition-all'>
+                        logout
+                    </button>
                 @else
                     <button type='button' onclick="location.href='/register';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-greenblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                         register
@@ -77,8 +84,6 @@ use Illuminate\Support\Facades\Auth;
                     }
                 </script>
             </div>
-            
-
         </header>
 
         <div class='h-screen bg-cover relative' style="background-image: url('{{ asset('img/pattern.png') }}');">

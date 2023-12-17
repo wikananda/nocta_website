@@ -52,6 +52,13 @@
                             </form>
                         </div>
                     </div>
+                @elseif(Auth::guard('admin')->check())
+                    <button type='button' onclick="location.href='{{ route('admin.dashboard') }}';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
+                        dashboard
+                    </button>
+                    <button type='button' onclick="location.href='{{ route('admin.logout') }}';" class='px-7 py-3 text-xl font-semibold text-darkblue border-transparent border-2 bg-lightred hover:bg-transparent hover:border-lightred hover:text-lightred focus:outline-none focus:outline-8 transition-all'>
+                        logout
+                    </button>
                 @else
                     <button type='button' onclick="location.href='/login';" class='px-7 py-3 text-xl font-semibold text-whiteblue border-transparent border-2 bg-greenblue hover:bg-whiteblue hover:border-whiteblue hover:text-greenblue focus:outline-none focus:outline-8 transition-all'>
                         login
